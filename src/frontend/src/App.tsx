@@ -1166,20 +1166,20 @@ function TestimonialsSection() {
     },
   ];
 
-  return (
-    <AnimatedSection id="about" className="py-24 bg-dark">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div variants={fadeUp} custom={0} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet/30 bg-violet/10 text-violet text-xs font-semibold uppercase tracking-widest mb-4">
-            <Star className="w-3.5 h-3.5" />
-            Client Reviews
-          </div>
-          <h2 className="font-display text-5xl sm:text-6xl font-black text-foreground mb-4 leading-tight">
-            Reviews That Speak Volumes
-          </h2>
-          <div className="divider-violet mx-auto mb-4" />
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Trusted by engineering leaders across fintech, healthcare,
+             /* return (
+                <AnimatedSection id="about" className="py-24 bg-dark">
+                  <div className="max-w-7xl mx-auto px-6">
+                    <motion.div variants={fadeUp} custom={0} className="text-center mb-16">
+                      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet/30 bg-violet/10 text-violet text-xs font-semibold uppercase tracking-widest mb-4">
+                        <Star className="w-3.5 h-3.5" />
+                        Client Reviews
+                      </div>
+                      <h2 className="font-display text-5xl sm:text-6xl font-black text-foreground mb-4 leading-tight">
+                        Reviews That Speak Volumes
+                      </h2>
+                      <div className="divider-violet mx-auto mb-4" />
+                      <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                        Trusted by engineering leaders across fintech, healthcare,
             logistics, and enterprise software.
           </p>
         </motion.div>
@@ -1193,7 +1193,7 @@ function TestimonialsSection() {
               className="bento-tile card-glass rounded-2xl border border-border/50 p-8 flex flex-col relative overflow-hidden"
             >
               {/* Giant decorative opening quote */}
-              <span
+             /* <span
                 className="absolute -top-3 -left-1 font-display font-black leading-none select-none pointer-events-none"
                 style={{
                   fontSize: "9rem",
@@ -1232,7 +1232,7 @@ function TestimonialsSection() {
       </div>
     </AnimatedSection>
   );
-}
+} /*
 
 /* ─── CTA Banner ────────────────────────────────────────────── */
 function CTABanner() {
