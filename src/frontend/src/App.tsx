@@ -28,7 +28,6 @@ import {
   Server,
   ShieldCheck,
   Star,
-  StarHalf,
   Twitter,
   Users,
   X,
