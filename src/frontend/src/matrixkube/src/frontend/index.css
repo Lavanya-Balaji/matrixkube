@@ -1,0 +1,361 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Font Faces ────────────────────────────────────────────── */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora-Variable.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+
+    /* ── MatrixKube Modern SaaS — Violet Theme ── */
+    --background: 0.08 0.015 270;
+    --foreground: 0.96 0.008 270;
+
+    --card: 0.11 0.02 270;
+    --card-foreground: 0.96 0.008 270;
+
+    --popover: 0.13 0.025 270;
+    --popover-foreground: 0.96 0.008 270;
+
+    /* Violet primary */
+    --primary: 0.65 0.22 290;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.15 0.03 270;
+    --secondary-foreground: 0.85 0.01 270;
+
+    --muted: 0.17 0.025 270;
+    --muted-foreground: 0.52 0.018 270;
+
+    --accent: 0.65 0.22 290;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.2 0.03 270;
+    --input: 0.2 0.03 270;
+    --ring: 0.65 0.22 290;
+
+    --chart-1: 0.65 0.22 290;
+    --chart-2: 0.55 0.18 290;
+    --chart-3: 0.45 0.14 280;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.11 0.02 270;
+    --sidebar-foreground: 0.96 0.008 270;
+    --sidebar-primary: 0.65 0.22 290;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.17 0.025 270;
+    --sidebar-accent-foreground: 0.85 0.01 270;
+    --sidebar-border: 0.2 0.03 270;
+    --sidebar-ring: 0.65 0.22 290;
+
+    /* Custom brand tokens */
+    --violet: 0.65 0.22 290;
+    --violet-dim: 0.5 0.16 290;
+    --dark: 0.08 0.015 270;
+    --dark-surface: 0.11 0.02 270;
+    --dark-card: 0.13 0.025 270;
+    --text-bright: 0.97 0.005 270;
+    --text-muted: 0.52 0.018 270;
+    --border-subtle: 0.2 0.03 270;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Sora", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: oklch(var(--dark));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  /* ─── Color utilities ─────────────────────────────────────── */
+  .text-violet {
+    color: oklch(var(--violet));
+  }
+  .bg-violet {
+    background-color: oklch(var(--violet));
+  }
+  .border-violet {
+    border-color: oklch(var(--violet));
+  }
+  .bg-dark {
+    background-color: oklch(var(--dark));
+  }
+  .bg-dark-surface {
+    background-color: oklch(var(--dark-surface));
+  }
+  .bg-dark-card {
+    background-color: oklch(var(--dark-card));
+  }
+  .text-muted-custom {
+    color: oklch(var(--text-muted));
+  }
+
+  /* ─── Glow effects ────────────────────────────────────────── */
+  .glow-violet {
+    box-shadow:
+      0 0 24px oklch(var(--violet) / 0.3),
+      0 0 48px oklch(var(--violet) / 0.12);
+  }
+
+  .glow-violet-sm {
+    box-shadow: 0 0 14px oklch(var(--violet) / 0.35);
+  }
+
+  /* ─── Glassmorphism card ──────────────────────────────────── */
+  .card-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: oklch(0.13 0.025 270 / 0.7);
+    border: 1px solid oklch(0.25 0.04 270 / 0.5);
+  }
+
+  /* ─── Card hover ──────────────────────────────────────────── */
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 32px oklch(var(--violet) / 0.15),
+      0 0 0 1px oklch(var(--violet) / 0.25);
+  }
+
+  /* ─── Grid background ─────────────────────────────────────── */
+  .grid-bg {
+    background-image:
+      linear-gradient(oklch(var(--violet) / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(var(--violet) / 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* ─── Aurora animated background ─────────────────────────── */
+  @keyframes aurora {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .aurora-bg {
+    background: linear-gradient(
+      135deg,
+      oklch(0.08 0.015 270),
+      oklch(0.12 0.08 290),
+      oklch(0.10 0.06 260),
+      oklch(0.13 0.09 300),
+      oklch(0.09 0.04 270)
+    );
+    background-size: 400% 400%;
+    animation: aurora 12s ease infinite;
+  }
+
+  /* ─── Gradient border ─────────────────────────────────────── */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      oklch(var(--violet) / 0.6),
+      oklch(0.5 0.14 260 / 0.3),
+      oklch(var(--violet) / 0.1)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* ─── Buttons ─────────────────────────────────────────────── */
+  .btn-violet {
+    background-color: oklch(var(--violet));
+    color: oklch(0.98 0 0);
+    font-weight: 700;
+    font-family: "Cabinet Grotesk", sans-serif;
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .btn-violet:hover {
+    background-color: oklch(0.7 0.24 290);
+    box-shadow: 0 4px 24px oklch(var(--violet) / 0.45);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline-violet {
+    border: 1.5px solid oklch(var(--violet) / 0.6);
+    color: oklch(var(--violet));
+    font-weight: 600;
+    font-family: "Cabinet Grotesk", sans-serif;
+    background: oklch(var(--violet) / 0.06);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+  }
+
+  .btn-outline-violet:hover {
+    background-color: oklch(var(--violet) / 0.15);
+    border-color: oklch(var(--violet) / 0.8);
+    transform: translateY(-1px);
+  }
+
+  /* ─── Section gradients ───────────────────────────────────── */
+  .hero-gradient {
+    background: radial-gradient(
+        ellipse 80% 60% at 50% -10%,
+        oklch(var(--violet) / 0.12) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 80% 60%,
+        oklch(0.5 0.12 260 / 0.15) 0%,
+        transparent 50%
+      ),
+      oklch(var(--dark));
+  }
+
+  .section-gradient {
+    background: linear-gradient(
+      180deg,
+      oklch(var(--dark)) 0%,
+      oklch(var(--dark-surface)) 50%,
+      oklch(var(--dark)) 100%
+    );
+  }
+
+  .stats-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--dark-surface)) 0%,
+      oklch(var(--dark-card)) 100%
+    );
+  }
+
+  /* ─── CTA banner ──────────────────────────────────────────── */
+  .cta-banner {
+    background: linear-gradient(
+      135deg,
+      oklch(0.10 0.045 280) 0%,
+      oklch(0.09 0.055 295) 50%,
+      oklch(0.11 0.04 265) 100%
+    );
+  }
+
+  /* ─── Navigation ──────────────────────────────────────────── */
+  .nav-blur {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background-color: oklch(0.08 0.015 270 / 0.85);
+    border-bottom: 1px solid oklch(0.25 0.04 290 / 0.3);
+  }
+
+  /* ─── Star ratings ────────────────────────────────────────── */
+  .star-filled {
+    color: oklch(0.82 0.16 75);
+  }
+
+  /* ─── Dividers ────────────────────────────────────────────── */
+  .divider-violet {
+    height: 3px;
+    width: 48px;
+    background: linear-gradient(90deg, oklch(var(--violet)), oklch(var(--violet) / 0));
+    border-radius: 9999px;
+  }
+
+  /* ─── Hero capability cards ───────────────────────────────── */
+  .hero-capability-card {
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .hero-capability-card:hover {
+    border-color: oklch(var(--violet) / 0.4);
+    background-color: oklch(0.16 0.04 270 / 0.9);
+    transform: translateX(4px);
+  }
+
+  /* ─── Noise texture overlay ───────────────────────────────── */
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.35;
+    border-radius: inherit;
+  }
+
+  /* ─── Bento grid ──────────────────────────────────────────── */
+  .bento-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  /* ─── Tech partner scrolling strip ───────────────────────── */
+  @keyframes scroll-x {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .tech-scroll {
+    animation: scroll-x 30s linear infinite;
+  }
+
+  .tech-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* ─── Bento tile glow on hover ────────────────────────────── */
+  .bento-tile {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento-tile:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 12px 40px oklch(var(--violet) / 0.18),
+      0 0 0 1px oklch(var(--violet) / 0.2);
+  }
+}
