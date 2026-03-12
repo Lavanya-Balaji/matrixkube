@@ -27,7 +27,7 @@ import {
   Send,
   Server,
   ShieldCheck,
-  Star,
+
   Twitter,
   Users,
   X,
