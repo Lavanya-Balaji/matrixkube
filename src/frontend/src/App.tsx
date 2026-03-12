@@ -79,20 +79,7 @@ function AnimatedSection({
   );
 }
 
-/* ─── Star Rating ───────────────────────────────────────────── */
-function StarRating({ rating }: { rating: number }) {
-  const full = Math.floor(rating);
-  const hasHalf = rating % 1 >= 0.5;
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: full }).map((_, idx) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: fixed-length star array
-        <Star key={idx} className="w-4 h-4 star-filled fill-current" />
-      ))}
-      {hasHalf && <StarHalf className="w-4 h-4 star-filled fill-current" />}
-    </div>
-  );
-}
+
 
 /* ─── Tech Partner Strip ────────────────────────────────────── */
 function TechPartnerStrip() {
@@ -433,43 +420,7 @@ function HeroSection() {
               </motion.div>
             ))}
 
-            {/* Social proof pill */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.3, duration: 0.5 }}
-              className="mt-2 inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-violet/20 bg-violet/5"
-            >
-              <div className="flex -space-x-2">
-                {["SM", "RN", "EL"].map((init) => (
-                  <div
-                    key={init}
-                    className="w-7 h-7 rounded-full border-2 border-dark-card bg-violet/20 flex items-center justify-center"
-                  >
-                    <span className="text-violet text-[9px] font-bold font-display">
-                      {init}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-foreground">
-                  Trusted by 200+ enterprises
-                </p>
-                <div className="flex gap-0.5 mt-0.5">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star
-                      key={s}
-                      className="w-2.5 h-2.5 star-filled fill-current"
-                    />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Scroll indicator */}
+          
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -1166,72 +1117,7 @@ function TestimonialsSection() {
     },
   ];
 
-             /* return (
-                <AnimatedSection id="about" className="py-24 bg-dark">
-                  <div className="max-w-7xl mx-auto px-6">
-                    <motion.div variants={fadeUp} custom={0} className="text-center mb-16">
-                      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet/30 bg-violet/10 text-violet text-xs font-semibold uppercase tracking-widest mb-4">
-                        <Star className="w-3.5 h-3.5" />
-                        Client Reviews
-                      </div>
-                      <h2 className="font-display text-5xl sm:text-6xl font-black text-foreground mb-4 leading-tight">
-                        Reviews That Speak Volumes
-                      </h2>
-                      <div className="divider-violet mx-auto mb-4" />
-                      <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Trusted by engineering leaders across fintech, healthcare,
-            logistics, and enterprise software.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              variants={fadeUp}
-              custom={i + 1}
-              className="bento-tile card-glass rounded-2xl border border-border/50 p-8 flex flex-col relative overflow-hidden"
-            >
-              {/* Giant decorative opening quote */}
-             /* <span
-                className="absolute -top-3 -left-1 font-display font-black leading-none select-none pointer-events-none"
-                style={{
-                  fontSize: "9rem",
-                  color: "oklch(0.65 0.22 290 / 0.07)",
-                  lineHeight: 1,
-                }}
-                aria-hidden="true"
-              >
-                "
-              </span>
-
-              <div className="relative z-10 flex flex-col flex-1">
-                <StarRating rating={t.rating} />
-                <blockquote className="text-sm text-muted-foreground leading-relaxed mt-4 mb-5 flex-1">
-                  {t.quote}
-                </blockquote>
-                <div className="flex items-center gap-3 pt-5 border-t border-border/50">
-                  <div className="w-10 h-10 rounded-full bg-violet/20 border border-violet/30 flex items-center justify-center flex-shrink-0">
-                    <span className="text-violet font-display font-bold text-sm">
-                      {t.initial}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="font-display font-bold text-sm text-foreground">
-                      {t.name}
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      {t.role}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </AnimatedSection>
-  );
+    
 } /*
 
 /* ─── CTA Banner ────────────────────────────────────────────── */
