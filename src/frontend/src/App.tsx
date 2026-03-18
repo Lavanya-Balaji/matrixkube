@@ -1220,12 +1220,12 @@ function ContactSection() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "hello@matrixkube.tech" },
+    { icon: Mail, label: "Email", value: "lavanyaanbu@gmail.com" },
     { icon: Phone, label: "Phone", value: "+1 (888) 123-4567" },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA & Remote Worldwide",
+      value: "Adayar, Chennai, Tamil Nadu, India",
     },
   ];
 
