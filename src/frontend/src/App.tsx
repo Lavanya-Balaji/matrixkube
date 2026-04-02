@@ -268,9 +268,8 @@ function HeroSection() {
   };
 
   const capabilities = [
-    { label: "Cloud Architecture", sub: "AWS · Azure · GCP" },
     { label: "Kubernetes & Helm", sub: "Production-grade clusters" },
-    { label: "DevSecOps CI/CD", sub: "Secure by design" },
+    { label: "DevSecOps", sub: "Secure by design" },
     { label: "Corporate Training", sub: "Teams upskilled fast" },
   ];
 
@@ -325,9 +324,9 @@ function HeroSection() {
               className="font-display font-black leading-[0.9] tracking-tight text-foreground mb-6"
               style={{ fontSize: "clamp(3.2rem, 7vw, 5.5rem)" }}
             >
-              Cloud.
+              SRE,
               <br />
-              <span className="text-violet">Kubernetes.</span>
+              <span className="text-violet">Platform Engineering, </span>
               <br />
               DevSecOps.
             </motion.h1>
@@ -385,7 +384,7 @@ function HeroSection() {
                   MatrixKube Technologies
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Certified Cloud · K8s · DevSecOps Experts
+                  Certified CNCF consultant, | Golden kubeastranut |
                 </p>
               </div>
             </div>

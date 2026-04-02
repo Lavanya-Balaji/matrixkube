@@ -282,7 +282,6 @@ function HeroSection() {
   };
 
   const capabilities = [
-    { label: "Cloud Architecture", sub: "AWS · Azure · GCP" },
     { label: "Kubernetes & Helm", sub: "Production-grade clusters" },
     { label: "DevSecOps CI/CD", sub: "Secure by design" },
     { label: "Corporate Training", sub: "Teams upskilled fast" },
